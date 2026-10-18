@@ -1,0 +1,30 @@
+# Incident Report: TCP SYN Scan Detection
+
+## 1. Incident Summary
+A controlled TCP SYN scan was performed from the Kali Linux VM against the Ubuntu VM to test the lab's network intrusion detection capability.
+
+## 2. Environment
+- Monitoring server: Ubuntu Linux
+- Testing machine: Kali Linux
+- Network IDS: Suricata
+- Security monitoring platform: Wazuh
+
+## 3. Detection Details
+- Date: October 18, 2026
+- Source IP: 192.168.56.104
+- Destination IP: 192.168.56.107
+- Protocol: TCP
+- Destination port observed: 28
+- Suricata signature: LOCAL TEST TCP SYN scan detected
+- Suricata SID: 1000002
+- Wazuh rule ID: 86601
+- Wazuh alert level: 3
+
+## 4. Investigation
+Nmap was used to perform an authorized SYN scan against the Ubuntu lab VM. Suricata generated an alert, and the event was verified in Wazuh Threat Hunting.
+
+## 5. Response
+The activity was an authorized test within the isolated lab. No containment action was required. The alert was recorded as evidence of successful detection.
+
+## 6. Conclusion
+The test demonstrated that the custom Suricata rule detected the TCP SYN scan and that Wazuh received and indexed the alert.

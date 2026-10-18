@@ -1,0 +1,29 @@
+# Incident Report: ICMP Detection
+
+## 1. Incident Summary
+ICMP traffic was generated from the Kali Linux VM to the Ubuntu VM to verify the custom Suricata ICMP detection rule.
+
+## 2. Environment
+- Monitoring server: Ubuntu Linux
+- Testing machine: Kali Linux
+- Network IDS: Suricata
+- Security monitoring platform: Wazuh
+
+## 3. Detection Details
+- Date: October 18, 2026
+- Source IP: 192.168.56.104
+- Destination IP: 192.168.56.107
+- Protocol: ICMP
+- Suricata signature: LOCAL TEST ICMP detected
+- Suricata SID: 1000001
+- Wazuh rule ID: 86601
+- Wazuh alert level: 3
+
+## 4. Investigation
+ICMP traffic was generated using the ping utility. Suricata recorded the traffic as an alert, and the corresponding event was located in Wazuh's archived logs and Threat Hunting events.
+
+## 5. Response
+The traffic was generated intentionally for authorized lab testing. No containment action was required.
+
+## 6. Conclusion
+The test verified that the custom Suricata ICMP rule detected the traffic. The event was also received by Wazuh, demonstrating the integration between the network intrusion detection system and centralized security monitoring platform.

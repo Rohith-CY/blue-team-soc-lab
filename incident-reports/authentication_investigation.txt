@@ -1,0 +1,34 @@
+# Investigation Report: PAM Authentication Failure
+
+## 1. Investigation Summary
+A PAM authentication-failure event was identified in Wazuh Threat Hunting while monitoring the Ubuntu system in the Blue Team SOC lab.
+
+## 2. Environment
+- Monitored system: Ubuntu Linux
+- Security monitoring platform: Wazuh
+- Log source: sudo / PAM authentication logs
+- Event decoder: pam
+
+## 3. Event Details
+- Date: October 18, 2026
+- Timestamp: 14:35:42 (as displayed in Wazuh)
+- Agent name: ubuntu
+- Agent ID: 000
+- Username: ubuntu
+- Event description: PAM: User login failed.
+- Wazuh rule ID: 5503
+- Alert level: 5
+- Associated MITRE ATT&CK technique: T1110.001 — Password Guessing
+
+## 4. Investigation Findings
+Wazuh recorded a PAM authentication-failure event for the Ubuntu user. The event was displayed in Threat Hunting and included authentication-related metadata.
+
+The associated MITRE ATT&CK technique is a classification attached to the Wazuh rule. This single event does not establish that a password-guessing or brute-force attack occurred.
+
+## 5. Response
+The event was documented for investigation. Further review of repeated failures, surrounding logs, account activity, and the reason for the failed authentication would be required before classifying the activity as malicious.
+
+No containment action was taken based on this event alone.
+
+## 6. Conclusion
+This investigation demonstrates that Wazuh can collect and display PAM authentication-failure events for security analysis. Correlation with additional events and context is necessary to distinguish routine login errors from suspicious activity.

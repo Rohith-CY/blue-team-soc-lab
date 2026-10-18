@@ -1,0 +1,21 @@
+# Secrets and environment variables
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# Logs and packet captures
+*.log
+*.pcap
+*.pcapng
+
+# Python temporary files
+__pycache__/
+*.pyc
+.venv/
+
+# Editor and operating-system files
+.vscode/
+.DS_Store
+Thumbs.db

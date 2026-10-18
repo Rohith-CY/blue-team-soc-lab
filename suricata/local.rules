@@ -1,0 +1,5 @@
+# ICMP traffic detection
+alert icmp any any -> any any (msg:"LOCAL TEST ICMP detected"; sid:1000001; rev:1;)
+
+# TCP SYN scan detection
+alert tcp any any -> $HOME_NET any (msg:"LOCAL TEST TCP SYN scan detected"; flags:S; flow:stateless; threshold:type both, track by_src, count 10, seconds 10; sid:1000002; rev:1;)
